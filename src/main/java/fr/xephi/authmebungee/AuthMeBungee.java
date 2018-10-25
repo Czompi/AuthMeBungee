@@ -21,10 +21,20 @@ import java.util.logging.Logger;
 
 public class AuthMeBungee extends Plugin {
 
+	/////
+	// Modified for 3rd party devs to work with their plugin(s). 
+	// Added by Czompi.
+	private static AuthMeBungee instance;
+	/////
+    
     // Instances
     private Injector injector;
     private SettingsManager settings;
-    private AuthPlayerManager authPlayerManager;
+	/////
+	// Modified for 3rd party devs to work with their plugin(s). 
+	// Added by Czompi.
+    private static AuthPlayerManager authPlayerManager;
+	/////
 
     public AuthMeBungee() {
     }
@@ -72,4 +82,14 @@ public class AuthMeBungee extends Plugin {
         injector.registerProvider(SettingsManager.class, BungeeSettingsProvider.class);
     }
 
+	/////
+	// Modified for 3rd party devs to work with their plugin(s). 
+	// Added by Czompi.
+	/**
+	 * @returns with AuthPlayerManager data, that enables to externally check AuthUser status.
+	 */
+	public static AuthPlayerManager getAuthPlayerManager() {
+		return authPlayerManager;
+	}
+	/////
 }
